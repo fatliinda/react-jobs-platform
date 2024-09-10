@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card'
+import { Link } from 'react-router-dom'
 
 const HomeCards = () => {
   return (
@@ -12,7 +13,7 @@ const HomeCards = () => {
               Browse our React jobs and start your career today
             </p>
           </Card>
-          
+
           <Card bg='bg-indigo-100'>
             <h2 className='text-2xl font-bold'>For Employers</h2>
             <p className='mt-2 mb-4'>
