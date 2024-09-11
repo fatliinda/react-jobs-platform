@@ -11,28 +11,17 @@ const JobListings = ({ isHome = false }) => {
       const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs';
       try {
         const res = await fetch(apiUrl);
-  
-        // Check if the response is actually JSON
-        const contentType = res.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          throw new Error("Response is not JSON");
-        }
-  
         const data = await res.json();
         setJobs(data);
       } catch (error) {
-        console.log('Error fetching data:', error);
-  
-        // Optionally set jobs to an empty array or handle the error state
-        setJobs([]);
+        console.log('Error fetching data', error);
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchJobs();
-  }, [isHome]); // Add isHome as a dependency
-  
+  }, []);
 
   return (
     <section className='bg-blue-50 px-4 py-10'>
